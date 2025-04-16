@@ -1,4 +1,10 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "automatic"
+=======
+    "cSpell.words": [
+        "утановлена"
+    ]
+>>>>>>> c1a7fd5b5847206f3cb4026b4986de9319dbcf85
 }

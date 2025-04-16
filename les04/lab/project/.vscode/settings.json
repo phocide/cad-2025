@@ -1,0 +1,36 @@
+{
+    "files.encoding": "utf8",
+    "files.autoGuessEncoding": true,
+    "terminal.integrated.env.windows": {
+        "JAVA_TOOL_OPTIONS": "-Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8",
+        "PYTHONIOENCODING": "utf-8",
+        "LANG": "ru_RU.UTF-8"
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
+            "args": ["/k", "chcp 65001"],
+            "icon": "terminal-cmd"
+        },
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoExit", 
+                "-Command", 
+                "chcp 65001"
+            ]
+        }
+    },
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.jdt.ls.java.home": "",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "",
+            "default": true
+        }
+    ],
+    "terminal.integrated.shellIntegration.enabled": true
+}
