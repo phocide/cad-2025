@@ -11,9 +11,9 @@
 7. 🟢 [Управления объектами. Язык запросов JPQL](./les07/README.md)
 8. 🟢 [Spring Data.Управление транзакциями](./les08/README.md)
 9. 🟢 [Сервлеты. Разработка Web-приложений](./les09/README.md)
-10. [REST. Маршализация JSON.](./les10/README.md)
-11. [Spring MVC.](./les11/README.md)
-12. [Spring MVC.Технологии представления. Thymeleaf](./les12/README.md)
+10. 🟢 [REST. Маршализация XML и JSON.](./les10/README.md)
+11. 🟢 [Spring MVC.](./les11/README.md)
+12. 🟢 [Spring MVC.Технологии представления. Thymeleaf](./les12/README.md)
 13. [WebFlux](./les13/README.md)
 14. [Разработка Web-приложений на реактивном стеке](./les14/README.md)
 15. [Безопасность Web-приложений. Spring security](./les15/README.md)
@@ -27,9 +27,9 @@
 3. 🟢 [Технологии работы с базами данных. JDBC](./les06/lab.md)
 4. 🟢 [Технологии работы с базами данных. JPA. Spring Data](./les08/lab.md)
 5. 🟢 [Разработка  Web-приложений с использованием сервлетов](./les10/lab.md)
-6. [Разработка Web-приложений с использованием технологии Spring MVC](./les15/lab.md)
-7. [Spring security.Basic Authentication](./les16/lab.md)
-8. [Основы тестирование](./les18/lab.md)
+6. 🟢 [Разработка Web-приложений с использованием технологии Spring MVC](./les12/lab.md)
+7. [Spring security.Basic Authentication](./les164/lab.md)
+8. [Основы тестирование](./les16/lab.md)
 
 ## Правила выполнения и сдачи лабораторных
 
