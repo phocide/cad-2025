@@ -97,10 +97,6 @@ public class HTMLTableRenderer implements Renderer {
             
             // Записываем HTML в файл с явным указанием UTF-8 кодировки и добавлением BOM
             try (FileOutputStream fos = new FileOutputStream(filePath)) {
-                // Добавляем BOM для UTF-8
-                fos.write(0xEF);
-                fos.write(0xBB);
-                fos.write(0xBF);
                 
                 // Записываем HTML
                 OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8);

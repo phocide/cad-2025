@@ -6,21 +6,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Component
 public class ConsoleTableRenderer implements Renderer {
     // Компонент для получения списка продуктов.
     private final ProductProvider productProvider;
-    // Используем форматтер только для даты
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    // PrintStream, настроенный на вывод в UTF-8.
     private final PrintStream out;
 
     public ConsoleTableRenderer(ProductProvider productProvider) {
         this.productProvider = productProvider;
-        // Настраиваем вывод в консоль с использованием UTF-8
         this.out = new PrintStream(System.out, true, StandardCharsets.UTF_8);
     }
 
@@ -29,7 +24,6 @@ public class ConsoleTableRenderer implements Renderer {
         // Получаем список продуктов через ProductProvider.
         List<Product> products = productProvider.getProducts();
         
-        // Корректируем ширину столбцов для даты (уменьшаем, так как убрали время)
         out.println("+-----------+-----------------------+-----------------------+-------------+----------+----------------+----------------------+------------+------------+");
         out.println("| ProductID | Name                  | Description           | CategoryID  | Price    | StockQuantity  | ImageURL             | CreatedAt  | UpdatedAt  |");
         out.println("+-----------+-----------------------+-----------------------+-------------+----------+----------------+----------------------+------------+------------+");
@@ -53,7 +47,7 @@ public class ConsoleTableRenderer implements Renderer {
         out.println("+-----------+-----------------------+-----------------------+-------------+----------+----------------+----------------------+------------+------------+");
         
         // Выводим общее количество строк (продуктов) в наборе.
-        out.printf("%d rows in set\n", products.size());
+        out.printf("%d строк в наборе\n", products.size());
     }
 
     // Вспомогательный метод для обрезки строки, если её длина превышает указанное значение.

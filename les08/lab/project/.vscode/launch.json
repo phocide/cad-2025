@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Spring App",
+            "request": "launch",
+            "mainClass": "ru.bsuedu.cad.lab.App",
+            "projectName": "app",
+            "vmArgs": [
+                "-Dfile.encoding=UTF-8",
+                "-Dconsole.encoding=UTF-8",
+                "-Dsun.stdout.encoding=UTF-8",
+                "-Dsun.stderr.encoding=UTF-8"
+            ],
+            "env": {
+                "GRADLE_OPTS": "-Dfile.encoding=UTF-8"
+            }
+        }
+    ]
+} 

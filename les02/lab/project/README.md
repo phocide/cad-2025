@@ -23,12 +23,12 @@
   + Тестовый фреймворк: JUnit Jupiter
 
 ### 3. Добавление зависимостей:
-- Добавлена [библиотека Spring Context 6.2.2](project/app/build.gradle.kts) 
+- Добавлена [библиотека Spring Context 6.2.2](app/build.gradle.kts) 
 
 ```kts
 implementation(libs.spring.context)
 ```
-+ Настроена версия в [libs.versions.toml](project/gradle/libs.versions.toml)
++ Настроена версия в [libs.versions.toml](gradle/libs.versions.toml)
 ```toml
 [versions]
 spring-context="6.2.2"
@@ -44,12 +44,12 @@ spring-context = { module = "org.springframework:spring-context", version.ref = 
 - Реализованы интерфейсы и их реализации
 
 ### 5. Реализация функциональности:
-- Реализован [загрузчик CSV файлов](project/app/src/main/java/ru/bsuedu/cad/lab/io/ResourceFileReader.java)
-- Реализован [парсер CSV](project/app/src/main/java/ru/bsuedu/cad/lab/parser/CSVParser.java)
-- Реализован [вывод данных в виде таблицы](project/app/src/main/java/ru/bsuedu/cad/lab/renderer/ConsoleTableRenderer.java)
+- Реализован [загрузчик CSV файлов](app/src/main/java/ru/bsuedu/cad/lab/io/ResourceFileReader.java)
+- Реализован [парсер CSV](app/src/main/java/ru/bsuedu/cad/lab/parser/CSVParser.java)
+- Реализован [вывод данных в виде таблицы](app/src/main/java/ru/bsuedu/cad/lab/renderer/ConsoleTableRenderer.java)
 
 ### 6. Запуск приложения:
-- Приложение успешно запускается командой `gradle run`
+- Приложение успешно запускается командой `gradlew run`
 - Выводит данные в виде таблицы
 ![cmd output](image-1.png)
 

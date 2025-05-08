@@ -4,17 +4,12 @@ import ru.bsuedu.cad.lab.model.Product;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class CSVParser implements Parser {
-    // Упрощаем форматтер, так как нам нужна только дата
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
     @Override
     public List<Product> parse(String content) {

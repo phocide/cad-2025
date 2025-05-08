@@ -23,9 +23,8 @@ public class ResourceFileReader implements Reader {
     public String read() {
         // Загружаем CSV файл по пути: classpath:product.csv.
         Resource resource = resourceLoader.getResource("classpath:product.csv");
-        // Явно указываем кодировку UTF-8 при чтении файла
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
+            new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
             // Читаем все строки файла и объединяем их в одну строку с разделителем переноса строки.
             return reader.lines().collect(Collectors.joining("\n"));
         } catch (IOException e) {
