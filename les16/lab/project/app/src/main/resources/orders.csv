@@ -1,0 +1,3 @@
+orderId,customerId,orderDate,totalPrice,status,shippingAddress,details
+1,1,2024-05-01T10:00,199.98,NEW,Москва,1:2:99.99
+2,2,2024-05-02T12:00,150.00,SHIPPED,Санкт-Петербург,2:1:150.00 
