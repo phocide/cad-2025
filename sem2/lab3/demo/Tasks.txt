@@ -1,0 +1,83 @@
+1. Добавим систему авторизации в приложение. Для этого
+необходимо модифицировать файл с зависимостями, добавив в него
+зависимость spring-boot-starter-security.
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+2. Далее нам необходимо создать класс SecurityConfig с настройками
+конфигурации безопасности:
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import
+org.springframework.security.config.annotation.web.configuration.EnableWebSec
+urity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import
+org.springframework.security.config.annotation.method.configuration.EnableGlo
+balMethodSecurity;
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig {
+@Bean
+public InMemoryUserDetailsManager userDetailsService() {
+UserDetails user = User.withDefaultPasswordEncoder()
+.username("user")
+.password("password")
+.roles("USER")
+.build();
+UserDetails moderator = User.withDefaultPasswordEncoder()
+.username("moderator")
+.password("password")
+.roles("MODERATOR")
+.build();
+return new InMemoryUserDetailsManager(user, moderator);
+}
+}
+
+3. Мы добавили две роли, но на данный момент они имеют одинаковые
+возможности. Сделаем так, чтобы только MODERATOR мог менять статус
+задач и удалять записи. Для этого нам нужно модифицировать класс
+TaskController:
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+@Controller
+public class TaskController {
+private List<Task> taskList = new ArrayList<>();
+@GetMapping("/")
+public String index(Model model) {
+model.addAttribute("tasks", taskList);
+return "index";
+}
+@PostMapping("/addTask")
+public String addTask(@ModelAttribute Task task) {
+taskList.add(task);
+return "redirect:/";
+}
+@PreAuthorize("hasRole('MODERATOR')")
+@GetMapping("/deleteTask/{id}")
+public String deleteTask(@PathVariable Long id) {
+taskList.removeIf(task -> task.getId().equals(id));
+return "redirect:/";
+}
+@PreAuthorize("hasRole('MODERATOR')")
+@PostMapping("/updateTask/{id}")
+public String updateTask(@PathVariable Long id, @RequestParam boolean
+completed) {
+for (Task task : taskList) {
+if (task.getId().equals(id)) {
+task.setCompleted(completed);
+break;
+}
+}
+return "redirect:/";
+}
+}
